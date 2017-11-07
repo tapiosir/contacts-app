@@ -6,15 +6,8 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import { ContactListItemComponent } from './contact/contact-list/contact-list-item/contact-list-item.component';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactService} from './contact/services/contact.service';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatInputModule, MatListModule} from '@angular/material';
 
-const materialModules = [
-  BrowserAnimationsModule,
-  MatButtonModule,
-  MatListModule,
-  MatInputModule
-];
+
 
 
 @NgModule({
@@ -25,8 +18,8 @@ const materialModules = [
   ],
   imports: [
     BrowserModule,
-    MaterialComponentsModule,
-    materialModules
+    MaterialComponentsModule
+
   ],
   providers: [
     ContactService
