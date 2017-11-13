@@ -6,7 +6,19 @@ import { ContactListComponent } from './contact/contact-list/contact-list.compon
 import { ContactListItemComponent } from './contact/contact-list/contact-list-item/contact-list-item.component';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactService} from './contact/services/contact.service';
+import { AddContactComponent } from './contact/add-contact/add-contact.component';
+import {RouterModule, Routes} from '@angular/router';
+import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
 
+const routes: Routes = [
+  {
+    path: 'add-contact',
+    component: AddContactComponent
+  }, {
+    path: 'contacts',
+    component: ContactListComponent
+  }
+];
 
 
 
@@ -14,11 +26,14 @@ import {ContactService} from './contact/services/contact.service';
   declarations: [
     AppComponent,
     ContactListComponent,
-    ContactListItemComponent
+    ContactListItemComponent,
+    AddContactComponent,
+    ContactAddressPipe
   ],
   imports: [
     BrowserModule,
-    MaterialComponentsModule
+    MaterialComponentsModule,
+    RouterModule.forRoot(routes)
 
   ],
   providers: [

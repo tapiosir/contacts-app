@@ -8,9 +8,10 @@ export class ContactService {
 
   constructor() {
     this.contacts = [
-      new Contact(1, '22', '33', '44', '55', '66'),
+      new Contact(1, 'es', 'jonne', '44', '55', '66'),
       new Contact(2, 'etunimi', 'sukunimi', '21356', 'kujalla', 'kaupungi')
     ];
+    localStorage.setItem('contacts', JSON.stringify(this.contacts));
   }
 
   getContacts(): Contact[] {
