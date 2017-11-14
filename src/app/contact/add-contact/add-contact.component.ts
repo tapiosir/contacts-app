@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {ContactService} from '../services/contact.service';
+import {Contact} from '../contact';
 
 @Component({
   selector: 'ca-add-contact',
@@ -8,11 +10,25 @@ import {Router} from '@angular/router';
 })
 export class AddContactComponent implements OnInit {
 
-  constructor(private router: Router) { }
-  showContactList(){
+
+  contact: Contact;
+
+  constructor(private router: Router, private contactService: ContactService) {
+
+
+  }
+
+  showContactList() {
     this.router.navigate(['']);
   }
+
+  addContact(): void {
+    this.contactService.addContact(this.contact);
+
+  }
+
   ngOnInit() {
+    this.contact = new Contact;
   }
 
 }

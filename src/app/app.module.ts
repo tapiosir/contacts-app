@@ -2,13 +2,16 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import { ContactListComponent } from './contact/contact-list/contact-list.component';
-import { ContactListItemComponent } from './contact/contact-list/contact-list-item/contact-list-item.component';
+import {ContactListComponent} from './contact/contact-list/contact-list.component';
+import {ContactListItemComponent} from './contact/contact-list/contact-list-item/contact-list-item.component';
 import {MaterialComponentsModule} from './material-components/material-components.module';
 import {ContactService} from './contact/services/contact.service';
-import { AddContactComponent } from './contact/add-contact/add-contact.component';
+import {AddContactComponent} from './contact/add-contact/add-contact.component';
 import {RouterModule, Routes} from '@angular/router';
-import { ContactAddressPipe } from './contact/pipes/contact-address.pipe';
+import {ContactAddressPipe} from './contact/pipes/contact-address.pipe';
+import {FormsModule} from '@angular/forms';
+import {ContactDetailsComponent} from './contact/contact-details/contact-details.component';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 const routes: Routes = [
   {
@@ -17,9 +20,11 @@ const routes: Routes = [
   }, {
     path: 'contacts',
     component: ContactListComponent
+  }, {
+    path: 'contact-details',
+    component: ContactDetailsComponent
   }
 ];
-
 
 
 @NgModule({
@@ -28,12 +33,17 @@ const routes: Routes = [
     ContactListComponent,
     ContactListItemComponent,
     AddContactComponent,
-    ContactAddressPipe
+    ContactAddressPipe,
+    ContactDetailsComponent
+
   ],
   imports: [
     BrowserModule,
     MaterialComponentsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    BrowserModule,
+    FlexLayoutModule
 
   ],
   providers: [

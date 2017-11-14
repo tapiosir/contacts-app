@@ -1,24 +1,24 @@
 
 <mat-card>
   <mat-form-field >
-    <input matInput placeholder="first name">
+    <input matInput [(ngModel)]="contact.firstName" placeholder="first name" >
   </mat-form-field>
   <mat-form-field >
-    <input matInput placeholder="last name">
+    <input matInput [(ngModel)]="contact.lastName" placeholder="last name">
   </mat-form-field>
   <br>
   <mat-form-field >
-    <input matInput placeholder="number">
+    <input matInput [(ngModel)]="contact.phoneNumber" placeholder="number">
   </mat-form-field>
   <br>
   <mat-form-field >
-    <input matInput placeholder="address">
+    <input matInput [(ngModel)]="contact.streetAddress" placeholder="address">
   </mat-form-field>
   <mat-form-field >
-    <input matInput placeholder="city">
+    <input matInput [(ngModel)]="contact.city" placeholder="city">
   </mat-form-field>
   <br>
-  <button mat-raised-button title="save"> <mat-icon mat-list-icon > save </mat-icon> </button>
+  <button mat-raised-button routerLink="/" (click)="addContact()" title="save"> <mat-icon mat-list-icon > save </mat-icon> </button>
   <button mat-raised-button title="cancel" (click)="showContactList()"> <mat-icon mat-list-icon > clear </mat-icon> </button>
 </mat-card>
 

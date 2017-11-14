@@ -2,7 +2,7 @@
   <mat-sidenav #sidenav mode="over" opened="false">
     <button mat-raised-button title="home" (click)="showContactList()"> <mat-icon mat-list-icon > home </mat-icon> </button>
     <br>
-<button mat-raised-button title="add contact" (click)="showAddContact()"> <mat-icon mat-list-icon > person add </mat-icon> </button>
+<button mat-raised-button  title="add contact" (click)="showAddContact()"> <mat-icon mat-list-icon > person add </mat-icon> </button>
     <br>
     <button mat-raised-button> <mat-icon mat-list-icon > create </mat-icon> </button>
     <br>
@@ -14,8 +14,6 @@
 <mat-toolbar  color="primary"><button type="button" mat-button (click)="sidenav.open()">
   <mat-icon mat-list-icon>list </mat-icon>
 </button>contacts app</mat-toolbar>
-
-
   <ca-contact-list></ca-contact-list>
   <router-outlet></router-outlet>
 

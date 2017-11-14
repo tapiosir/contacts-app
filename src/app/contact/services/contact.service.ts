@@ -14,7 +14,15 @@ export class ContactService {
     localStorage.setItem('contacts', JSON.stringify(this.contacts));
   }
 
+  addContact(contact: Contact){
+    this.contacts.push(contact);
+    localStorage.setItem('contacts', JSON.stringify(this.contacts));
+
+  }
+
   getContacts(): Contact[] {
     return this.contacts;
   }
+
+
 }

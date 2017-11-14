@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {Contact} from './contact/contact';
 
 @Component({
   selector: 'ca-root',
@@ -13,9 +14,12 @@ export class AppComponent {
 
   }
 
-  showContactList(){
+
+
+  showContactList() {
     this.router.navigate(['']);
   }
+
   showAddContact() {
     this.router.navigate(['/add-contact']);
   }
