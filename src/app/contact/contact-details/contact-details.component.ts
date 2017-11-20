@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Contact} from '../contact';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-details',
@@ -6,10 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-details.component.css']
 })
 export class ContactDetailsComponent implements OnInit {
+  id: number;
+  details: any;
 
-  constructor() { }
+  contact: Contact;
+
+
+  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService) {
+  }
+
+  showContactList() {
+    this.router.navigate(['']);
+  }
 
   ngOnInit() {
+    console.log(this.id);
+    this.details = this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    });
+    this.contact = this.contactService.findContactsById(this.id);
   }
 
 }

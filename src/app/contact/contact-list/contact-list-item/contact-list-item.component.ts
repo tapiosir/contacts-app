@@ -15,7 +15,9 @@ export class ContactListItemComponent implements OnInit {
   }
 
   showContactDetails() {
-    this.router.navigate(['/contact-details']);
+    console.log(this.contact.id);
+    this.router.navigate(['/contact-details', this.contact.id]);
+
   }
 
   ngOnInit() {

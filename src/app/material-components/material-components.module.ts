@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
-  MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule,
+  MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule,
+  MatListModule,
   MatMenuModule,
   MatSidenavModule,
   MatToolbarModule
@@ -19,7 +20,8 @@ import {
     MatSidenavModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+
 
 
   ],
@@ -34,7 +36,8 @@ import {
     MatSidenavModule,
     MatCardModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule
   ]
 })
 export class MaterialComponentsModule {
