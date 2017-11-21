@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {ContactService} from '../services/contact.service';
 
 @Component({

@@ -9,7 +9,7 @@ namespace ContactsWebApi.Repositories
     public interface IContactRepository
     {
         List<Contact> GetAll();
-        Contact GetById(int Id);
+        Contact GetById(int id);
         //todo add, update, delete
     }
 }

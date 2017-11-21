@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ContactService} from '../services/contact.service';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {Contact} from '../contact';
 
 @Component({
@@ -13,7 +13,7 @@ export class AddContactComponent implements OnInit {
 
   contact: Contact;
 
-  constructor(private router: Router, private contactService: ContactService) {
+  constructor(private router: Router, private contactService: ContactLocalStorageService) {
 
 
   }

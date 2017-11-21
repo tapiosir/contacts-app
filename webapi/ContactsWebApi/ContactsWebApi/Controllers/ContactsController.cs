@@ -35,5 +35,7 @@ namespace ContactsWebApi.Controllers
             var contact = _contactService.FindContactById(id);
                 return new JsonResult(contact);
         }
+
+        
     }
 }

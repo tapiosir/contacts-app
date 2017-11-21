@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../contact';
-import {ContactService} from '../services/contact.service';
+import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 
 @Component({
   selector: 'ca-contact-details',
@@ -15,7 +15,7 @@ export class ContactDetailsComponent implements OnInit {
   contact: Contact;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactService) {
+  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactLocalStorageService) {
   }
 
   showContactList() {
