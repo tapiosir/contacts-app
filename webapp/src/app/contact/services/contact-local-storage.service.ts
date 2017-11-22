@@ -13,13 +13,6 @@ export class ContactLocalStorageService {
 
     this.localStorageKey = 'ca-contacts';
 
-    /*
-    this.contacts = [
-      new Contact(1, 'es', 'jonne', '44', '55', '66'),
-      new Contact(2, 'etunimi', 'sukunimi', '21356', 'kujalla', 'kaupungi')
-    ];
-    localStorage.setItem('contacts', JSON.stringify(this.contacts));
-    */
     this.initializeLocalStorage();
 
 
@@ -37,8 +30,6 @@ export class ContactLocalStorageService {
 
     contacts.push(contact);
     this.writeLocalStorageContacts(contacts);
-
-    // localStorage.setItem('contacts', JSON.stringify(this.contacts));
 
   }
 

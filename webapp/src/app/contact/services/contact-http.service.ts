@@ -1,5 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Observable';
+import {Contact} from '../contact';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ContactHttpService {
@@ -10,8 +13,16 @@ export class ContactHttpService {
     this.url = 'http://localhost:52262/api/contacts';
   }
 
-  get() {
-    this.http.get(this.url).subscribe((data) =>
-      console.log(data));
+  get(): Observable<Contact[]> {
+    return this.http.get(this.url).map((response) => {
+      return response as Contact[];
+    });
   }
+
+  getById(id: number): Observable<Contact> {
+    return this.http.get(this.url+'/'+id).map((response) => {
+      return response as Contact;
+    });
+  }
+
 }

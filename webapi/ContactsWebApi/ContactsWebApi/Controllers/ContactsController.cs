@@ -36,6 +36,6 @@ namespace ContactsWebApi.Controllers
                 return new JsonResult(contact);
         }
 
-        
+       // [HttpPost]
     }
 }

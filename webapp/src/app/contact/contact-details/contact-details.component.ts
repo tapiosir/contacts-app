@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../contact';
 import {ContactLocalStorageService} from '../services/contact-local-storage.service';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-contact-details',
@@ -15,7 +16,8 @@ export class ContactDetailsComponent implements OnInit {
   contact: Contact;
 
 
-  constructor(private router: Router, private route: ActivatedRoute, private contactService: ContactLocalStorageService) {
+  constructor(private router: Router, private contactService: ContactService, private route: ActivatedRoute, private contactLocalService: ContactLocalStorageService) {
+  this.contact = new Contact;
   }
 
   showContactList() {
@@ -23,11 +25,13 @@ export class ContactDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.id);
     this.details = this.route.params.subscribe(params => {
       this.id = +params['id'];
     });
-    this.contact = this.contactService.findContactsById(this.id);
+    // this.contactLocalService.findContactsById(this.id);
+    this.contactService.findContactById(this.id).subscribe((contact) => {
+      this.contact = contact;
+    });
   }
 
 }
