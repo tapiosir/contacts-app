@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ContactsWebApi.Models;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ContactsWebApi
 {
@@ -32,6 +35,9 @@ namespace ContactsWebApi
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
             services.AddMvc();
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=ContactsDb;Trusted_Connection=True;";
+            services.AddDbContext<ContactContext>(options => options.UseSqlServer(connection));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

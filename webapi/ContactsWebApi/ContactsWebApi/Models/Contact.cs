@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContactsWebApi.Models
 {
@@ -16,6 +17,11 @@ namespace ContactsWebApi.Models
         public string StreetAddress { get; set; }
         public string City { get; set; }
 
+        public Contact()
+        {
+            
+        }
+
         public Contact(int id, string firstName, string lastName, string phoneNumber, string streetAddress, string city)
         {
             Id = id;
@@ -26,4 +32,15 @@ namespace ContactsWebApi.Models
             City = city;
         }
     }
+
+    public class ContactContext : DbContext
+    {
+        public ContactContext(DbContextOptions<ContactContext> options)
+            : base(options) { }
+
+        public  DbSet<Contact> Contacts { get; set; }
+    }
+
 }
+
+
