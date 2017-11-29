@@ -72,9 +72,6 @@ namespace ContactsWebApi.Repositories
             updateContact.City = contact.City;
             updateContact.PhoneNumber = contact.PhoneNumber;
             updateContact.StreetAddress = contact.StreetAddress;
-             
-            
-
 
             _context.SaveChanges();
             
