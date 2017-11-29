@@ -26,6 +26,36 @@ namespace ContactsWebApi.Repositories
             return _contacts.FirstOrDefault(c => c.Id == id);
         }
 
+        public Contact AddContact(Contact contact)
+        {
+            int maxId = _contacts.Select(c => c.Id).Max();
+            int newId = maxId + 1;
+            contact.Id = newId;
+            _contacts.Add(contact);
+            return contact;
+        }
+
+        public Contact DeleteContact(int id)
+        {
+            var deleteContact = _contacts.FirstOrDefault(t => t.Id == id);
+            _contacts.Remove(deleteContact);
+            return deleteContact;
+
+
+        }
+
+        public Contact UpdateContact(int id,Contact contact)
+        {
+            var updateContact = _contacts.IndexOf(_contacts.FirstOrDefault(t => t.Id == id));
+
+            _contacts[updateContact] = contact;
+            return contact;
+
+        }
+            
+        
+
+
         private void Initialize()
         {
             _contacts=  new List<Contact> {

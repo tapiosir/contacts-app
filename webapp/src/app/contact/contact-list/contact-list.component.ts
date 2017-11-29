@@ -17,10 +17,17 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.updateContactList();
     // this.contacts = this.contactService.findContacts();
-    this.contactService.findContacts().subscribe((contacts: Contact []) => {
-      this.contacts = contacts;
-    });
+
+
   }
 
+  updateContactList(){
+    this.contactService.findContacts().subscribe((contacts: Contact []) => {
+      this.contacts = contacts;
+      console.log(this.contacts);
+      console.log('11111');
+    });
+  }
 }

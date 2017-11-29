@@ -2,10 +2,28 @@
 
 
 
-  <h4 mat-line >{{contact.firstName}}</h4>
-  <p mat-line>{{contact.lastName}}</p>
+
+  <mat-card>
+    <mat-form-field >
+      <input matInput [(ngModel)]="contact.firstName" placeholder="first name" >
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput [(ngModel)]="contact.lastName" placeholder="last name">
+    </mat-form-field>
+    <br>
+    <mat-form-field >
+      <input matInput [(ngModel)]="contact.phoneNumber" placeholder="number">
+    </mat-form-field>
+    <br>
+    <mat-form-field >
+      <input matInput [(ngModel)]="contact.streetAddress" placeholder="address">
+    </mat-form-field>
+    <mat-form-field >
+      <input matInput [(ngModel)]="contact.city" placeholder="city">
+    </mat-form-field>
+    <br>
   <button mat-raised-button title="home" (click)="showContactList()"> <mat-icon mat-list-icon > home </mat-icon> </button>
-  <button mat-raised-button> <mat-icon mat-list-icon > create </mat-icon> </button>
-  <button mat-raised-button> <mat-icon mat-list-icon > delete </mat-icon> </button>
+  <button mat-raised-button title="confirm edits" (click)="editContact()"> <mat-icon mat-list-icon > create </mat-icon> </button>
+  <button mat-raised-button title="delete" (click)="deleteContact()"> <mat-icon mat-list-icon > delete </mat-icon> </button>
 
 

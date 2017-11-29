@@ -3,7 +3,7 @@ import {ContactLocalStorageService} from './contact-local-storage.service';
 import {Contact} from '../contact';
 import {ContactHttpService} from './contact-http.service';
 import {Observable} from 'rxjs/Observable';
-import *as _ from 'lodash';
+import * as _ from 'lodash';
 import 'rxjs/add/observable/of';
 
 
@@ -26,23 +26,31 @@ export class ContactService {
   findContactById(id: number): Observable<Contact> {
 
     return this.contactHttpService.getById(id);
-   // const cached = _.find(this.contacts, {'id': id});
-   // if (cached) {
+    // const cached = _.find(this.contacts, {'id': id});
+    // if (cached) {
     //  return Observable.of(cached);
-   // }
-   // else {
+    // }
+    // else {
     //  return this.contactHttpService.getById(id).map((contact) => {
-     //   this.contacts.push(contact);
-       // return contact;
-      // });
-   // }
+    //   this.contacts.push(contact);
+    // return contact;
+    // });
+    // }
 
     // return this.localStorage.findContactsById(id);
   }
 
   addContact(contact: Contact) {
-    return this.localStorage.addContact(contact);
+    return this.contactHttpService.addContact(contact);
+    // return this.localStorage.addContact(contact);
   }
 
+  deleteContact(contact: Contact) {
+    return this.contactHttpService.deleteContact(contact);
+  }
+
+  editContact(contact: Contact) {
+    return this.contactHttpService.editContact(contact);
+  }
 
 }

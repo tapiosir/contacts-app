@@ -17,11 +17,23 @@ export class ContactDetailsComponent implements OnInit {
 
 
   constructor(private router: Router, private contactService: ContactService, private route: ActivatedRoute, private contactLocalService: ContactLocalStorageService) {
-  this.contact = new Contact;
+    this.contact = new Contact;
   }
 
   showContactList() {
     this.router.navigate(['']);
+  }
+
+  deleteContact(): void {
+    this.contactService.deleteContact(this.contact).subscribe(result => {
+      this.router.navigate(['/contacts']);
+    });
+  }
+
+  editContact(): void {
+    this.contactService.editContact(this.contact).subscribe(result => {
+      this.router.navigate(['/contacts']);
+    });
   }
 
   ngOnInit() {

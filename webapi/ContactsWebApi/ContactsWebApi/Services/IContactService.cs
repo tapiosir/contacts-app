@@ -7,5 +7,9 @@ namespace ContactsWebApi.Services
    {
        List<Contact> FindContacts();
        Contact FindContactById(int id);
+        Contact AddContact(Contact contact);
+       Contact DeleteContact(int id);
+       Contact UpdateContact(int id, Contact contact);
+
    }
 }

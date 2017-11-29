@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ContactLocalStorageService} from '../services/contact-local-storage.service';
 import {Contact} from '../contact';
+import {ContactHttpService} from '../services/contact-http.service';
+import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'ca-add-contact',
@@ -13,7 +15,7 @@ export class AddContactComponent implements OnInit {
 
   contact: Contact;
 
-  constructor(private router: Router, private contactService: ContactLocalStorageService) {
+  constructor(private router: Router, private contactService: ContactService) {
 
 
   }
@@ -23,12 +25,17 @@ export class AddContactComponent implements OnInit {
   }
 
   addContact(): void {
-    this.contactService.addContact(this.contact);
+    this.contactService.addContact(this.contact).subscribe(result => {
+      console.log(result);
+      this.router.navigate(['/contacts']);
+    });
+    // this.contactService.addContact(this.contact);
 
   }
 
   ngOnInit() {
-    this.contact = new Contact;
+     this.contact = new Contact;
+
   }
 
 }

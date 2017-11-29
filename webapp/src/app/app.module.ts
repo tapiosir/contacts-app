@@ -18,6 +18,10 @@ import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
+    path: '',
+    component: ContactListComponent
+  },
+  {
     path: 'add-contact',
     component: AddContactComponent
   }, {
