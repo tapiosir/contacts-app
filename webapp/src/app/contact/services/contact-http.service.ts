@@ -4,6 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import {Contact} from '../contact';
 import 'rxjs/add/operator/map';
 import {post} from 'selenium-webdriver/http';
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class ContactHttpService {
@@ -11,7 +12,7 @@ export class ContactHttpService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:52262/api/contacts';
+    this.url = environment.endpointUrl + '/contacts';
   }
 
   get(): Observable<Contact[]> {

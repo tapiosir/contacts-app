@@ -66,16 +66,17 @@ namespace ContactsWebApi.Repositories
             return contact;
             */
 
-          var updateContact = _context.Contacts.FirstOrDefault(t => t.Id == id);
+          /* var updateContact = _context.Contacts.FirstOrDefault(t => t.Id == id);
             updateContact.FirstName = contact.FirstName;
             updateContact.LastName = contact.LastName;
             updateContact.City = contact.City;
             updateContact.PhoneNumber = contact.PhoneNumber;
             updateContact.StreetAddress = contact.StreetAddress;
-
+            */
+            _context.Contacts.Update(contact);
             _context.SaveChanges();
             
-            return updateContact;
+            return contact;
 
 
         }

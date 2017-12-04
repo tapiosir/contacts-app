@@ -29,14 +29,14 @@ namespace ContactsWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IContactService, ContactServices>();
-            services.AddSingleton<IContactRepository, ContactRepository>();
+            services.AddScoped<IContactRepository, ContactRepository>();
             services.AddCors(o => o.AddPolicy("ContactsAppPolicy", builder =>
             {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }));
             services.AddMvc();
             var connection = @"Server=(localdb)\mssqllocaldb;Database=ContactsDb;Trusted_Connection=True;";
-            services.AddDbContext<ContactContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ContactContext>(options => options.UseSqlServer(Configuration["connectionstringazure"]));
 
         }
 
