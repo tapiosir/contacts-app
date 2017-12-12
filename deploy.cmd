@@ -23,9 +23,9 @@ setlocal enabledelayedexpansion
 SET ARTIFACTS=%~dp0%..\artifacts
 
 IF NOT DEFINED DEPLOYMENT_SOURCE (
-  SET DEPLOYMENT_SOURCE=%~dp0%webapp
+  SET DEPLOYMENT_SOURCE=%~dp0webapp
 )
-echo =%~dp0%\webapp
+echo =%~dp0webapp
 IF NOT DEFINED DEPLOYMENT_TARGET (
   SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot
 )
