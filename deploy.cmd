@@ -23,7 +23,7 @@ setlocal enabledelayedexpansion
 SET ARTIFACTS=%~dp0%..\artifacts
 
 IF NOT DEFINED DEPLOYMENT_SOURCE (
-  SET DEPLOYMENT_SOURCE=%~dp0%.
+  SET DEPLOYMENT_SOURCE=%~dp0%\webapp
 )
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
@@ -94,7 +94,7 @@ echo 2. Select node version
 call :SelectNodeVersion
 
 echo 3. Install npm packages
-pushd "%DEPLOYMENT_TARGET%\webapp"
+pushd "%DEPLOYMENT_SOURCE%\webapp"
 IF EXIST "package.json" (
   call :ExecuteCmd !NPM_CMD! install --production
   IF !ERRORLEVEL! NEQ 0 goto error  
