@@ -1,5 +1,5 @@
 @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
-
+echo TAA EI TOIMI ._.
 :: ----------------------
 :: KUDU Deployment Script
 :: Version: 1.0.15
